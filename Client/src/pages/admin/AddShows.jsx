@@ -22,7 +22,7 @@ const [addingShow, setAddingShow] = useState(false)
 
 const fetchNowPlayingMovies = async () => {
   try {
-    const {data} = await axios.get('/api/show/now-playing', {
+    const {data} = await axios.get('/api/shows/now-playing', {
       headers: {Authorization: `Bearer ${await getToken()}`}})
       if(data.success){
         setNowPlayingMovies(data.movies)
@@ -76,7 +76,7 @@ const handleSubmit = async () => {
     showPrice: Number(showPrice)
    }
 
-   const {data} = await axios.post('/api/show/add', payload, {headers: {
+   const {data} = await axios.post('/api/shows/add', payload, {headers: {
     Authorization: `Bearer ${await getToken()}` }})
 
     if(data.success){
